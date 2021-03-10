@@ -1,6 +1,8 @@
-package com.bmanchi.roomapp.data
+package com.bmanchi.roomapp.repository
 
 import androidx.lifecycle.LiveData
+import com.bmanchi.roomapp.data.UserDao
+import com.bmanchi.roomapp.model.User
 
 class UserRepository(private val userDao: UserDao) {
 
@@ -8,5 +10,9 @@ class UserRepository(private val userDao: UserDao) {
 
     suspend fun addUser(user: User) {
         userDao.addUser(user)
+    }
+
+    suspend fun updateUser(user: User) {
+        userDao.updateUser(user)
     }
 }
