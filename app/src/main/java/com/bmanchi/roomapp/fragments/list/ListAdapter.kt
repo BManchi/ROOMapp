@@ -14,17 +14,14 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var userList = emptyList<User>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)  {
-
-    }
-
+    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var currentItem = userList[position]
+        val currentItem = userList[position]
         holder.itemView.idTextView.text = currentItem.id.toString()
         holder.itemView.firstNameTextView.text = currentItem.firstName
         holder.itemView.lastNameTextView.text = currentItem.lastName

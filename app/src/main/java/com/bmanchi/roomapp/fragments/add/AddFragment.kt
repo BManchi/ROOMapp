@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bmanchi.roomapp.R
+import com.bmanchi.roomapp.hideKeyboard
 import com.bmanchi.roomapp.model.User
 import com.bmanchi.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
@@ -48,10 +49,12 @@ class AddFragment : Fragment() {
             // Add Data to Database
             mUserViewModel.addUser(user)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
+            // Close Keyboard
+            hideKeyboard(requireActivity())
             // Navigate Back
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all the fields.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
         }
     }
 
